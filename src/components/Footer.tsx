@@ -30,7 +30,7 @@ const Footer = () => {
 					<h4 className="text-lg font-semibold">Useful Links</h4>
 					<ul className="text-sm flex flex-col gap-1 space-y-2">
 						<Link href="/">About Us</Link>
-						<Link href="/">Forums</Link>
+
 						<Link href="/">Contact Us</Link>
 						<Link href="/privacy-policy">Our Privacy Policy</Link>
 						<Link href="/terms-of-service">Our Terms of Service</Link>

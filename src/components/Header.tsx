@@ -8,16 +8,12 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const navItems = [
-	{ name: "Account", href: "/account" },
+	{ name: "Account", href: "/admin/account" },
+	{ name: "Hosting", href: "/admin/hosting" },
+	{ name: "Deploy", href: "/admin/manage" },
 	{ name: "About Us", href: "/about" },
-
 	{ name: "Contact", href: "/contact" },
 ];
-
-const socialLinks = {
-	github: "https://github.com/HuyBoon",
-	linkedin: "https://www.linkedin.com/in/nh%E1%BA%ADt-huy-299334344/",
-};
 
 export default function Header() {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -72,14 +68,14 @@ export default function Header() {
 						<div className="h-6 w-px bg-white/10 mx-2" />
 
 						<div className="flex gap-3">
-							<a
-								href={socialLinks.github}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="p-2 rounded-lg bg-white/5 hover:bg-primary/10 transition-colors group"
+							<button
+								onClick={() => {
+									router.push("/login");
+								}}
+								className="p-2 cursor-pointer rounded-lg bg-white/5 hover:bg-primary/10 transition-colors group"
 							>
 								<CircleUser className="h-5 w-5 text-content/80 group-hover:text-primary transition-colors" />
-							</a>
+							</button>
 						</div>
 					</div>
 
@@ -115,14 +111,15 @@ export default function Header() {
 							</a>
 						))}
 						<div className="pt-4 border-t border-white/5 flex gap-4">
-							<a
-								href={socialLinks.github}
-								target="_blank"
-								rel="noopener noreferrer"
+							<button
+								onClick={() => {
+									setIsMenuOpen(false);
+									router.push("/login");
+								}}
 								className="p-2 rounded-lg bg-white/5 hover:bg-primary/10 transition-colors group"
 							>
 								<CircleUser className="h-5 w-5 text-content/80 group-hover:text-primary transition-colors" />
-							</a>
+							</button>
 						</div>
 					</motion.div>
 				)}

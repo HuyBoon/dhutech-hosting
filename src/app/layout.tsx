@@ -4,6 +4,8 @@ import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AppProvider } from "@/components/AppContext";
+import { Toaster } from "sonner";
 
 const robotoMono = Roboto_Mono({
 	subsets: ["latin"],
@@ -24,9 +26,12 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${robotoMono.variable} } antialiased`}>
-				<Header />
-				{children}
-				<Footer />
+				<AppProvider>
+					<Header />
+					<main className="pt-[100px]">{children}</main>
+					<Footer />
+				</AppProvider>
+				<Toaster richColors position="top-right" />
 			</body>
 		</html>
 	);
